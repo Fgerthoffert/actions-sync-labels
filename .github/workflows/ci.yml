@@ -59,3 +59,4 @@ jobs:
         with:
           org: zencrepes
           token: ${{ secrets.GH_TOKEN_GET_ORG_REPOS }}
+          src_repository: .github
