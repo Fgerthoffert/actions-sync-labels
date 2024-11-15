@@ -54,8 +54,8 @@ inputs:
     default: 'AND'
     required: false
   artifact_name:
-    description: 'Name of the GitHub artifact containing the repositories data'
-    default: 'repositories.ndjson'
+    description: 'Name of the GitHub artifact containing the labels data'
+    default: 'Labels'
     required: false
   artifact_retention:
     description: 'Number of days to retain the artifact'
