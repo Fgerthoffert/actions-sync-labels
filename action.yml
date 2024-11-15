@@ -1,23 +1,72 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Fetch Org Repositories'
+description:
+  'Collect data about all GitHub Repositories attached to a GitHub Organization.'
+author: 'fgerthoffert'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: activity
+  color: green
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  org:
+    description: 'A GitHub Organization'
     required: true
-    default: '1000'
+  token:
+    description: 'A GitHub Personal API Token'
+    required: true
+  max_query_nodes:
+    description: 'Maximum number of nodes to fetch per GraphQL query'
+    required: true
+    default: 30
+  src_repository:
+    description: 'The repository name to import labels from'
+    required: true
+    default: '.github'
+  tag_delete:
+    description:
+      'Delete across all repositories labels with this prefix (for example
+      delete_improvements will delete the improvements label from all
+      repositories)'
+    required: true
+    default: '_delete_'
+  tag_rename:
+    description:
+      'Will rename all repositories labels when a label in the source repository
+      contains this tag (for example bugs_rename_bug will rename the bugs label
+      to bug)'
+    required: true
+    default: '_rename_'
+  tag_partial:
+    description:
+      'Will match labels containining parts of the name when this tag is present
+      (for example _partial_Area will match all labels containing Area)'
+    required: true
+    default: '_partial_'
+  filter_topics:
+    description:
+      'Comma separated list of topics to filter repositories by. Use EMPTY to
+      filter by repositories without topics'
+    default: ''
+    required: false
+  filter_operator:
+    description: 'OR, AND operator to filter repositories by topics'
+    default: 'AND'
+    required: false
+  artifact_name:
+    description: 'Name of the GitHub artifact containing the repositories data'
+    default: 'repositories.ndjson'
+    required: false
+  artifact_retention:
+    description: 'Number of days to retain the artifact'
+    default: '2'
+    required: false
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  artifact_filepath:
+    description: 'Filepath of the JSON file containing the repositories data'
 
 runs:
   using: node20

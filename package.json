@@ -67,7 +67,14 @@
     ]
   },
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/artifact": "^2.1.11",
+    "@actions/core": "^1.11.1",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-http": "^1.5.17",
+    "date-fns": "^4.1.0",
+    "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
     "@github/local-action": "^2.2.0",
