@@ -27,7 +27,7 @@ export const saveLabels = async <T>(
           ...label,
           fetchedAt: new Date().toISOString()
         }) + '\n',
-        { flag: 'a' }
+        { flag: 'a+' }
       )
     }
     core.info(`Labels saved to: ${tmpFilepath}`)
