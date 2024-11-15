@@ -16,10 +16,12 @@ export const saveLabels = async <T>(
 ): Promise<T> => {
   const tmpPath = os.tmpdir()
 
+  const artifactsToSave: string[] = []
   for (const labelsArtifact of artifacts) {
     const tmpFilepath = path.join(tmpPath, labelsArtifact.filename)
     const labels = labelsArtifact.labels.sort(sortByName)
 
+    let labelsPresent = false
     for (const label of labels) {
       fs.writeFileSync(
         tmpFilepath,
@@ -30,13 +32,19 @@ export const saveLabels = async <T>(
         { flag: 'a+' }
       )
     }
-    core.info(`Labels saved to: ${tmpFilepath}`)
+    labelsPresent = true
+    if (labelsPresent) {
+      core.info(`Labels saved to: ${tmpFilepath}`)
+      artifactsToSave.push(labelsArtifact.filename)
+    } else {
+      core.info(`No label present, not saving anything to: ${tmpFilepath}`)
+    }
   }
 
   await uploadArtifact({
     artifactName: core.getInput('artifact_name'),
     artifactPath: tmpPath,
-    artifactFilenames: artifacts.map(l => l.filename),
+    artifactFilenames: artifactsToSave,
     retentionDays: parseInt(core.getInput('artifact_retention_days'), 10)
   })
 
