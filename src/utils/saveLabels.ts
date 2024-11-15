@@ -31,8 +31,8 @@ export const saveLabels = async <T>(
         }) + '\n',
         { flag: 'a+' }
       )
+      labelsPresent = true
     }
-    labelsPresent = true
     if (labelsPresent) {
       core.info(`Labels saved to: ${tmpFilepath}`)
       artifactsToSave.push(labelsArtifact.filename)
