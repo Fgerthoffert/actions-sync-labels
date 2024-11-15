@@ -43,16 +43,6 @@ interface OrgResponse {
   rateLimit: RateLimit
 }
 
-interface RepoCustomProperties {
-  totalCount: number
-  edges: {
-    node: {
-      name: string
-      values: string[]
-    }
-  }[]
-}
-
 interface RepoTopics {
   totalCount: number
   edges: {

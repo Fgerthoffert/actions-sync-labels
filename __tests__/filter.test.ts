@@ -5,16 +5,6 @@
 import { filterRepos } from '../src/utils/filterRepos'
 import { expect } from '@jest/globals'
 
-interface RepoCustomProperties {
-  totalCount: number
-  edges: {
-    node: {
-      name: string
-      values: string[]
-    }
-  }[]
-}
-
 interface RepoTopics {
   totalCount: number
   edges: {
@@ -35,13 +25,7 @@ interface Repo {
   owner: {
     login: string
   }
-  customProperties: RepoCustomProperties
   repositoryTopics: RepoTopics
-}
-
-const customProperties: RepoCustomProperties = {
-  totalCount: 0,
-  edges: []
 }
 
 const repos: Repo[] = [
@@ -51,7 +35,6 @@ const repos: Repo[] = [
     url: 'url',
     isArchived: true,
     nameWithOwner: 'owner/repo1',
-    customProperties: customProperties,
     owner: {
       login: 'owner'
     },
@@ -72,7 +55,6 @@ const repos: Repo[] = [
     url: 'url',
     isArchived: false,
     nameWithOwner: 'owner/repo2',
-    customProperties: customProperties,
     owner: {
       login: 'owner'
     },
@@ -98,7 +80,6 @@ const repos: Repo[] = [
     url: 'url',
     isArchived: false,
     nameWithOwner: 'owner/repo3',
-    customProperties: customProperties,
     owner: {
       login: 'owner'
     },
@@ -124,7 +105,6 @@ const repos: Repo[] = [
     url: 'url',
     isArchived: false,
     nameWithOwner: 'owner/repo4',
-    customProperties: customProperties,
     owner: {
       login: 'owner'
     },
@@ -150,7 +130,6 @@ const repos: Repo[] = [
     url: 'url',
     isArchived: false,
     nameWithOwner: 'owner/repo5',
-    customProperties: customProperties,
     owner: {
       login: 'owner'
     },
@@ -165,7 +144,6 @@ const repos: Repo[] = [
     url: 'url',
     isArchived: true,
     nameWithOwner: 'owner/repo6',
-    customProperties: customProperties,
     owner: {
       login: 'owner'
     },
