@@ -135,7 +135,7 @@ action is triggered on cron).
 
 Note: Since we want to keep the ability for repositories to have unique labels,
 it is not possible to automatically delete from all repos labels absent from the
-source repo, thus relying on a delete.
+source repository, thus relying on a delete.
 
 ## Rename Labels
 

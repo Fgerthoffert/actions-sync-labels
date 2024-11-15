@@ -323,7 +323,7 @@ describe('findLabelsToCreate', () => {
     jest.restoreAllMocks()
   })
 
-  it('It should not create labels with identified tags', () => {
+  it('should not create labels with identified tags', () => {
     const labelsToCreate = findLabelsToCreate(
       srcRepositoryLabels,
       fetchedLabels,
@@ -389,7 +389,7 @@ describe('findLabelsToDelete', () => {
     jest.restoreAllMocks()
   })
 
-  it('It should only delete labels with the _delete_ tag', () => {
+  it('should only delete labels with the _delete_ tag', () => {
     const labelsToCreate = findLabelsToDelete(
       srcRepositoryLabels,
       fetchedLabels,

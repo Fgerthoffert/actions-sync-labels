@@ -1,6 +1,5 @@
-name: 'Fetch Org Repositories'
-description:
-  'Collect data about all GitHub Repositories attached to a GitHub Organization.'
+name: 'Sync Labels across Repositories'
+description: 'Synchronize labels in bulk across a large number of repositories.'
 author: 'fgerthoffert'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
